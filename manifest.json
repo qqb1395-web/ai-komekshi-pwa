@@ -1,0 +1,11 @@
+{
+  "id": "./",
+  "name": "AI Көмекші",
+  "short_name": "AI Көмекші",
+  "lang": "kk",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#e8faf6",
+  "theme_color": "#009b90"
+}
