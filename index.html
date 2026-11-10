@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="kk">
-<link rel="manifest" href="./manifest.json"><head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#009b90">
+  <meta name="description"
+        content="Мұғалім мен мектеп жұмысына арналған AI Көмекші">
+
   <title>AI Көмекші</title>
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -18,6 +28,7 @@
       color: #17243b;
       background: linear-gradient(145deg, #e8faf6, #edf4ff);
     }
+
     main {
       width: 100%;
       max-width: 460px;
@@ -28,19 +39,25 @@
       text-align: center;
       box-shadow: 0 16px 50px #17334b12;
     }
+
     .logo {
+      display: block;
       width: 88px;
       height: 88px;
       margin: 0 auto 20px;
-      display: grid;
-      place-items: center;
-      font-size: 44px;
-      background: #102238;
-      border: 3px solid #00a89a;
-      border-radius: 26px;
+      border-radius: 22px;
     }
-    h1 { margin: 0 0 12px; font-size: 32px; }
-    p { color: #627187; line-height: 1.65; }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 32px;
+    }
+
+    p {
+      color: #627187;
+      line-height: 1.65;
+    }
+
     .features {
       margin: 24px 0;
       display: flex;
@@ -48,12 +65,14 @@
       justify-content: center;
       gap: 8px;
     }
+
     .features span {
       padding: 9px 12px;
       border-radius: 12px;
       background: #f0f6fa;
       font-size: 14px;
     }
+
     .start {
       display: block;
       padding: 17px;
@@ -64,20 +83,53 @@
       font-weight: 700;
       text-decoration: none;
     }
-    .start:hover { background: #007f76; }
+
+    .start:hover {
+      background: #007f76;
+    }
+
     .start:focus-visible {
       outline: 3px solid #1678d4;
       outline-offset: 4px;
     }
-    .note { margin: 20px 0 0; font-size: 13px; }
-    footer { margin-top: 24px; font-size: 12px; color: #78869a; }
+
+    .note {
+      margin: 20px 0 0;
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #78869a;
+    }
+
+    @media (max-width: 360px) {
+      body {
+        padding: 14px;
+      }
+
+      main {
+        padding: 28px 18px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
   </style>
 </head>
+
 <body>
   <main>
-    <div class="logo" aria-hidden="true">🤖</div>
+    <img class="logo" src="./icon.svg" alt="" width="88" height="88">
+
     <h1>AI Көмекші</h1>
-    <p>Мұғалім мен мектеп жұмысына арналған<br>жасанды интеллект көмекшісі</p>
+
+    <p>
+      Мұғалім мен мектеп жұмысына арналған<br>
+      жасанды интеллект көмекшісі
+    </p>
 
     <div class="features">
       <span>💬 ЖИ чат</span>
@@ -86,8 +138,10 @@
       <span>🎙️ Дауыс</span>
     </div>
 
-    <a class="start"
-       href="https://ai.studio/apps/84586bab-6763-4ff3-b0c9-78cd6dd949ad?fullscreenApplet=true">
+    <a
+      class="start"
+      href="https://ai.studio/apps/84586bab-6763-4ff3-b0c9-78cd6dd949ad?fullscreenApplet=true"
+    >
       Көмекшіні ашу →
     </a>
 
@@ -98,5 +152,17 @@
 
     <footer>Қазақша және орысша</footer>
   </main>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js', {
+          scope: './'
+        }).catch(error => {
+          console.error('Service worker тіркелмеді:', error);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
